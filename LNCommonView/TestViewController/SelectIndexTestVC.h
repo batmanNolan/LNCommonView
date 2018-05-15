@@ -3,11 +3,11 @@
 //  LNCommonView
 //
 //  Created by nolan on 2018/5/13.
-//  Copyright © 2018年 chinaLN. All rights reserved.
+//  Copyright © 2018年 nolan. All rights reserved.
 //
 
 #import "LNCommonViewController.h"
 
-@interface SelectIndexVC : LNCommonViewController
+@interface SelectIndexTestVC : LNCommonViewController
 
 @end

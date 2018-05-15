@@ -3,7 +3,7 @@
 //  LNCommonView
 //
 //  Created by nolan on 2018/5/13.
-//  Copyright © 2018年 chinaLN. All rights reserved.
+//  Copyright © 2018年 nolan. All rights reserved.
 //
 
 #import "MultiSelectTestVC.h"
@@ -25,8 +25,7 @@
     [super viewDidLoad];
     self.title = @"多选";
     [self initView];
-    [self initDate];
-    // Do any additional setup after loading the view.
+    [self initData];
 }
 
 
@@ -44,7 +43,7 @@
     self.selectView1.multiSelectDelegate = self;
 }
 
-- (void)initDate{
+- (void)initData{
     self.treeModelArray = [[NSMutableArray alloc] init];
     self.dataSource = @[@{@"parentID":@"", @"name":@"Node1", @"ID":@"1"},
                     @{@"parentID":@"1", @"name":@"Node10", @"ID":@"10"},
@@ -98,7 +97,6 @@
             [self.selectBtn buttonTitle:treeModel.value btnTag:1];
         }
         [self.selectView1 reloadMultiTableView:tempArray tableIndex:tableIndex+1];
-        
     }
 }
 
@@ -155,15 +153,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

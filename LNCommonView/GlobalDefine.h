@@ -3,7 +3,7 @@
 //  LNCommonView
 //
 //  Created by nolan on 2018/5/13.
-//  Copyright © 2018年 chinaLN. All rights reserved.
+//  Copyright © 2018年 nolan. All rights reserved.
 //
 
 #ifndef GlobalDefine_h
@@ -22,5 +22,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define SCREEN_WIDTH                ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT               ([UIScreen mainScreen].bounds.size.height)
+
+
+//iphoneX下部安全高度
+#define SafeAreaBottomHeight (SCREEN_HEIGHT == 812.0 ? 34: 0)
+
+#define SafeAreaTopHeight (SCREEN_HEIGHT == 812.0 ? 88 : 64)
 
 #endif /* globalDefine_h */

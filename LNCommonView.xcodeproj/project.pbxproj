@@ -23,7 +23,7 @@
 		FF1DDD3920A7F58300EF79E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1DDD3820A7F58300EF79E3 /* UIKit.framework */; };
 		FF1DDD3E20A7F62E00EF79E3 /* UIView+LNCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1DDD3D20A7F62E00EF79E3 /* UIView+LNCategory.m */; };
 		FF1DDD4120A7F6EC00EF79E3 /* MultiSelectTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1DDD4020A7F6EC00EF79E3 /* MultiSelectTestVC.m */; };
-		FF1DDD4420A7F70200EF79E3 /* SelectIndexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1DDD4320A7F70200EF79E3 /* SelectIndexVC.m */; };
+		FF1DDD4420A7F70200EF79E3 /* SelectIndexTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1DDD4320A7F70200EF79E3 /* SelectIndexTestVC.m */; };
 		FF1DDD4B20AAA06200EF79E3 /* LNCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1DDD4A20AAA06100EF79E3 /* LNCommonViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +61,8 @@
 		FF1DDD3D20A7F62E00EF79E3 /* UIView+LNCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LNCategory.m"; sourceTree = "<group>"; };
 		FF1DDD3F20A7F6EC00EF79E3 /* MultiSelectTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiSelectTestVC.h; sourceTree = "<group>"; };
 		FF1DDD4020A7F6EC00EF79E3 /* MultiSelectTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiSelectTestVC.m; sourceTree = "<group>"; };
-		FF1DDD4220A7F70200EF79E3 /* SelectIndexVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectIndexVC.h; sourceTree = "<group>"; };
-		FF1DDD4320A7F70200EF79E3 /* SelectIndexVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectIndexVC.m; sourceTree = "<group>"; };
+		FF1DDD4220A7F70200EF79E3 /* SelectIndexTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectIndexTestVC.h; sourceTree = "<group>"; };
+		FF1DDD4320A7F70200EF79E3 /* SelectIndexTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectIndexTestVC.m; sourceTree = "<group>"; };
 		FF1DDD4920AAA06100EF79E3 /* LNCommonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNCommonViewController.h; sourceTree = "<group>"; };
 		FF1DDD4A20AAA06100EF79E3 /* LNCommonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNCommonViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,8 +201,8 @@
 		FF1DDD4520A8663100EF79E3 /* TestViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FF1DDD4220A7F70200EF79E3 /* SelectIndexVC.h */,
-				FF1DDD4320A7F70200EF79E3 /* SelectIndexVC.m */,
+				FF1DDD4220A7F70200EF79E3 /* SelectIndexTestVC.h */,
+				FF1DDD4320A7F70200EF79E3 /* SelectIndexTestVC.m */,
 				FF1DDD3F20A7F6EC00EF79E3 /* MultiSelectTestVC.h */,
 				FF1DDD4020A7F6EC00EF79E3 /* MultiSelectTestVC.m */,
 				FF1DDD4920AAA06100EF79E3 /* LNCommonViewController.h */,
@@ -311,7 +311,7 @@
 				FF1DDD4120A7F6EC00EF79E3 /* MultiSelectTestVC.m in Sources */,
 				FF1DDD4B20AAA06200EF79E3 /* LNCommonViewController.m in Sources */,
 				FF1DDD3320A7DD6F00EF79E3 /* LNSelectTableView.m in Sources */,
-				FF1DDD4420A7F70200EF79E3 /* SelectIndexVC.m in Sources */,
+				FF1DDD4420A7F70200EF79E3 /* SelectIndexTestVC.m in Sources */,
 				FF1DDD2C20A7DD6200EF79E3 /* LNMultiButtonView.m in Sources */,
 				FF1DDD0520A7CF8F00EF79E3 /* AppDelegate.m in Sources */,
 				FF1DDD3E20A7F62E00EF79E3 /* UIView+LNCategory.m in Sources */,

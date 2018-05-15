@@ -3,11 +3,12 @@
 //  LNCommonView
 //
 //  Created by nolan on 2018/5/13.
-//  Copyright © 2018年 chinaLN. All rights reserved.
+//  Copyright © 2018年 nolan. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "MultiSelectTestVC.h"
+#import "SelectIndexTestVC.h"
 @interface ViewController (){
     NSArray *btnNameArray;
     NSMutableArray *btnArray;
@@ -44,8 +45,14 @@
 }
 
 - (void)btnPsd:(UIButton *)btn {
-    MultiSelectTestVC *vc = [[MultiSelectTestVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (btn.tag == 0) {
+        SelectIndexTestVC *vc = [[SelectIndexTestVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if(btn.tag == 1){
+        MultiSelectTestVC *vc = [[MultiSelectTestVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
