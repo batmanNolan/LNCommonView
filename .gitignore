@@ -1,3 +1,5 @@
 .DS_Store
 DerivedData/*
+Podfile.lock
+Pods/*
 Breakpoints_v2.xcbkptlist
