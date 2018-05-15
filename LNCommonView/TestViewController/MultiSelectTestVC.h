@@ -6,8 +6,8 @@
 //  Copyright © 2018年 chinaLN. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LNCommonViewController.h"
 
-@interface MultiSelectTestVC : UIViewController
+@interface MultiSelectTestVC : LNCommonViewController
 
 @end

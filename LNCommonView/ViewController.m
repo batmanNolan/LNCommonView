@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-typedef void (^updateSuccess)(void);
+#import "MultiSelectTestVC.h"
 @interface ViewController (){
     NSArray *btnNameArray;
     NSMutableArray *btnArray;
@@ -43,37 +43,9 @@ typedef void (^updateSuccess)(void);
     }
 }
 
--(void)dosomething:(updateSuccess)updateSuccess{
-    updateSuccess();
-}
 - (void)btnPsd:(UIButton *)btn {
-    dispatch_group_t group =dispatch_group_create();
-    dispatch_queue_t globalQueue=dispatch_get_global_queue(0, 0);
-    
-    
-    dispatch_group_enter(group);
-    
-    [self dosomething:^{
-        sleep(3);
-        NSLog(@"%@---block1结束。。。",[NSThread currentThread]);
-        NSLog(@"%@---1结束。。。",[NSThread currentThread]);
-        dispatch_group_leave(group);
-    }];
-   
-    
-    dispatch_group_enter(group);
-    //模拟多线程耗时操作
-    [self dosomething:^{
-        sleep(3);
-        NSLog(@"%@---block2结束。。。",[NSThread currentThread]);
-        dispatch_group_leave(group);
-        NSLog(@"%@---2结束。。。",[NSThread currentThread]);
-    }];
-
-    
-    dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"%@---全部结束。。。",[NSThread currentThread]);
-    });
+    MultiSelectTestVC *vc = [[MultiSelectTestVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

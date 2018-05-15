@@ -80,7 +80,6 @@
 -(void)setTreeModel:(LNTreeModel *)treeModel{
     _treeModel = treeModel;
     self.valueLabel.text =treeModel.value;
-    NSLog(@"%@",self.valueLabel.text);
 }
 
 
