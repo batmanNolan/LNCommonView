@@ -43,6 +43,7 @@
     
     for (int i = 0; i <self.btnTagArray.count; i++) {
         UIButton *tempBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/self.btnTagArray.count *i, 0, SCREEN_WIDTH/self.btnTagArray.count, self.buttonHeight)];
+        [tempBtn setBackgroundColor:[UIColor whiteColor]];
         [tempBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [tempBtn setTitle:[self.btnTagArray objectAtIndex:i] forState:UIControlStateNormal];
         [tempBtn setFont:[UIFont systemFontOfSize:14.f]];

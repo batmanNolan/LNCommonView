@@ -28,6 +28,6 @@
 @property(nonatomic,weak)id <LNMultiSelectDelegate> multiSelectDelegate;
 -(instancetype)initWithFrame:(CGRect)frame buttonCount:(int)buttonCount;
 - (void)reloadMultiTableView:(NSMutableArray *)dataArray tableIndex:(int)index;
-- (void)hideAndSaveSelectView:(BOOL)savaView;
-- (void)showMultiSelectView;
+- (void)hideAndSaveSelectView:(BOOL)savaView animated:(BOOL)animated;
+- (void)showMultiSelectView:(BOOL)animated;
 @end

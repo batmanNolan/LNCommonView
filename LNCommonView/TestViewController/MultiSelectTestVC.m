@@ -33,11 +33,11 @@
     self.selectBtn = [[LNMultiButtonView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) buttonHeight:40 buttonTitle:@"测试1",@"测试2", nil];
     self.selectView0 = [[LNMultiSelectView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT*1/2) buttonCount:3];
     self.selectView1 =  [[LNMultiSelectView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT*1/2) buttonCount:3];
-    [self.selectView0 hideAndSaveSelectView:NO];
-    [self.selectView1 hideAndSaveSelectView:NO];
-    [self.view addSubview:self.selectBtn];
+    [self.selectView0 hideAndSaveSelectView:NO animated:NO];
+    [self.selectView1 hideAndSaveSelectView:NO animated:NO];
     [self.view addSubview:self.selectView0];
     [self.view addSubview:self.selectView1];
+    [self.view addSubview:self.selectBtn];
     self.selectView0.multiSelectDelegate = self;
     self.selectBtn.multiButtonViewDelegate = self;
     self.selectView1.multiSelectDelegate = self;
@@ -106,8 +106,8 @@
 -(void)buttonTap:(int)btnTag selected:(BOOL)isSelect{
     if (btnTag == 0) {
         if (isSelect) {
-            [self.selectView0 showMultiSelectView];
-            [self.selectView1 hideAndSaveSelectView:NO];
+            [self.selectView0 showMultiSelectView:YES];
+            [self.selectView1 hideAndSaveSelectView:NO animated:NO];
             NSMutableArray *tempArray1 = [[NSMutableArray alloc] init];
             for (NSDictionary *dic in self.dataSource) {
                 if ([[dic objectForKey:@"ID"] isEqualToString:@"2"]) {
@@ -119,13 +119,13 @@
             }
             [self.selectView0 reloadMultiTableView:tempArray1 tableIndex:0];
         }else{
-            [self.selectView0 hideAndSaveSelectView:NO];
-            [self.selectView1 hideAndSaveSelectView:NO];
+            [self.selectView0 hideAndSaveSelectView:NO animated:YES];
+            [self.selectView1 hideAndSaveSelectView:NO animated:YES];
         }
     }else if(btnTag == 1){
         if (isSelect) {
-            [self.selectView1 showMultiSelectView];
-            [self.selectView0 hideAndSaveSelectView:NO];
+            [self.selectView1 showMultiSelectView:YES];
+            [self.selectView0 hideAndSaveSelectView:NO animated:NO];
             NSMutableArray *tempArray1 = [[NSMutableArray alloc] init];
             for (NSDictionary *dic in self.dataSource) {
                 if ([[dic objectForKey:@"ID"] isEqualToString:@"1"]) {
@@ -137,16 +137,16 @@
             }
             [self.selectView1 reloadMultiTableView:tempArray1 tableIndex:0];
         }else{
-            [self.selectView0 hideAndSaveSelectView:NO];
-            [self.selectView1 hideAndSaveSelectView:NO];
+            [self.selectView0 hideAndSaveSelectView:NO animated:YES];
+            [self.selectView1 hideAndSaveSelectView:NO animated:YES];
         }
         
     }
 }
 
 -(void)tapbackGround{
-    [self.selectView0 hideAndSaveSelectView:NO];
-    [self.selectView1 hideAndSaveSelectView:NO];
+    [self.selectView0 hideAndSaveSelectView:NO animated:YES];
+    [self.selectView1 hideAndSaveSelectView:NO animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

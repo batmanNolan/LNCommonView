@@ -64,7 +64,7 @@
 
 - (void)reloadMultiTableView:(NSMutableArray *)dataArray tableIndex:(int)index{
     if (index >= self.buttonCount) {
-        [self hideAndSaveSelectView:YES];
+        [self hideAndSaveSelectView:YES animated:YES];
     }else{
         if (!self.haveBeenSelect || index != 0) {
             LNMultiSelectTableView *tableView = [self.tableViewArray objectAtIndex:index];
@@ -80,15 +80,24 @@
     }
 }
 
--(void)hideAndSaveSelectView:(BOOL)savaView{
+-(void)hideAndSaveSelectView:(BOOL)savaView animated:(BOOL)animated{
     if (savaView) {
         self.haveBeenSelect = YES;
         self.selectedRowArray = [self.tempSelectedRowArray copy];
         self.tableviewsDataArray = [self.tempTableviewsDataArray copy];
     }
-    self.hidden = YES;
+    if (animated) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.transform = CGAffineTransformMakeTranslation(0, -SCREEN_HEIGHT/2);
+            self.alpha = 1.0;
+        } completion:^(BOOL finished) {
+            self.hidden = YES;
+        }];
+    }else{
+        self.hidden = YES;
+    }
 }
--(void)showMultiSelectView{
+-(void)showMultiSelectView:(BOOL)animated{
     if (self.haveBeenSelect) {
         for (int i = 0 ; i < self.tableviewsDataArray.count; i++) {
             LNMultiSelectTableView *tableView = [self.tableViewArray objectAtIndex:i];
@@ -103,6 +112,12 @@
         }
     }
     self.hidden = NO;
+    if (animated) {
+        self.transform = CGAffineTransformMakeTranslation(0, -SCREEN_HEIGHT/2);
+        [UIView animateWithDuration:0.2 animations:^{
+            self.transform = CGAffineTransformMakeTranslation(0, 0);
+        }];
+    }
 }
 - (void)tableView:(UITableView *)tableView multiSelectRowAtIndexPath:(NSIndexPath *)indexPath treeModel:(LNTreeModel *)treeModel{
     if (self.multiSelectDelegate && [self.multiSelectDelegate respondsToSelector:@selector(multiSelectView:tableViewIndex:indexPath:treeModel:)]) {
