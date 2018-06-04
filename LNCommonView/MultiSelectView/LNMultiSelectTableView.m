@@ -36,7 +36,7 @@
     if (self.cellType == Line_Type) {
         [self setBackgroundColor:UIColorFromRGB(0xFFFFFF)];
     }else if(self.cellType == Seperate_Type){
-        [self setBackgroundColor:[UIColor colorWithRed:82.0f/255.0f green:190.0f/255.0f blue:166.0f/255.0f alpha:0.2]];
+        [self setBackgroundColor:UIColorFromRGB(0xddf2ed)];
     }
 }
 

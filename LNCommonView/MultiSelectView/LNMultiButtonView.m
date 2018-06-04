@@ -15,9 +15,9 @@
 @property(nonatomic,assign)int            buttonHeight;
 @end
 @implementation LNMultiButtonView
--(instancetype)initWithFrame:(CGRect)frame buttonHeight:(int)buttonHeight buttonTitle:(NSString *)titles,...NS_REQUIRES_NIL_TERMINATION{
+-(instancetype)initWithFrame:(CGRect)frame buttonTitle:(NSString *)titles,...NS_REQUIRES_NIL_TERMINATION{
     self = [super initWithFrame:frame];
-    self.buttonHeight = buttonHeight;
+    self.buttonHeight = frame.size.height;
     if (self) {
         self.btnTagArray = [[NSMutableArray alloc] init];
         self.btnArray = [[NSMutableArray alloc] init];
@@ -36,11 +36,6 @@
 }
 
 -(void)layoutSubviews{
-    UIView *backgroundView = [[UIView alloc] initWithFrame: CGRectMake(0, self.buttonHeight, SCREEN_WIDTH, SCREEN_HEIGHT-self.buttonHeight)];
-    UITapGestureRecognizer *tapGesturRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pickupView)];
-    [backgroundView addGestureRecognizer:tapGesturRecognizer];
-    [self addSubview:backgroundView];
-    
     for (int i = 0; i <self.btnTagArray.count; i++) {
         UIButton *tempBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/self.btnTagArray.count *i, 0, SCREEN_WIDTH/self.btnTagArray.count, self.buttonHeight)];
         [tempBtn setBackgroundColor:[UIColor whiteColor]];

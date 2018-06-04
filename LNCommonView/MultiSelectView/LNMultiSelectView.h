@@ -21,7 +21,7 @@
 -(void)tableViewIndex:(int)tableIndex
             indexPath:(NSIndexPath *)indexPath
             treeModel:(LNTreeModel *)treeModel;
-
+-(void)tapBackView;
 @end
 //table的选择页面
 @interface LNMultiSelectView : UIView

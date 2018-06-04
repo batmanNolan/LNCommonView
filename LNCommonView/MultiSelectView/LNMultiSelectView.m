@@ -20,17 +20,17 @@
 @property(nonatomic,strong)NSMutableArray   *tempSelectedRowArray;
 @property(nonatomic,strong)NSMutableArray   *selectedRowArray;
 @property(nonatomic,assign)BOOL             haveBeenSelect;
-@property(nonatomic,assign)CGRect           oriFrame;
+@property(nonatomic,assign)int              tableViewheight;
 @end
 
 @implementation LNMultiSelectView
 -(instancetype)initWithFrame:(CGRect)frame buttonCount:(int)buttonCount{
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, SCREEN_HEIGHT)];
+    self.tableViewheight = frame.size.height;
     if (self) {
         self.buttonCount = buttonCount;
         self.tableViewArray  = [[NSMutableArray alloc]init];
         self.dataDic = [[NSMutableDictionary alloc]init];
-        self.oriFrame = frame;
         self.tempTableviewsDataArray = [[NSMutableArray alloc]init];
         self.tableviewsDataArray = [[NSMutableArray alloc]init];
         self.tempSelectedRowArray = [[NSMutableArray alloc]init];
@@ -43,22 +43,27 @@
     [self initView];
 }
 -(void)initView{
+    
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,self.width, self.height)];
+    UITapGestureRecognizer *tapGesturRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pickupView)];
+    [backView addGestureRecognizer:tapGesturRecognizer];
+    [backView setBackgroundColor: [UIColor clearColor]];
+    [self addSubview:backView];
+    
     for (int i = 0; i < self.buttonCount; i++) {
         if (self.buttonCount > 1 && i == 0) {
-            LNMultiSelectTableView * multiSelectTableView = [[LNMultiSelectTableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/self.buttonCount*i, 0, SCREEN_WIDTH/self.buttonCount, self.oriFrame.size.height) selectCellTyp:Seperate_Type];
+            LNMultiSelectTableView * multiSelectTableView = [[LNMultiSelectTableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/self.buttonCount*i, 0, SCREEN_WIDTH/self.buttonCount, self.tableViewheight) selectCellTyp:Seperate_Type];
             multiSelectTableView.tag = i;
             multiSelectTableView.multiSelectDelegate = self;
             [self.tableViewArray addObject:multiSelectTableView];
             [self addSubview:multiSelectTableView];
         }else{
-            LNMultiSelectTableView * multiSelectTableView = [[LNMultiSelectTableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/self.buttonCount*i, 0, SCREEN_WIDTH/self.buttonCount, self.oriFrame.size
-                                                                                                                       .height) selectCellTyp:Line_Type];
+            LNMultiSelectTableView * multiSelectTableView = [[LNMultiSelectTableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/self.buttonCount*i, 0, SCREEN_WIDTH/self.buttonCount, self.tableViewheight) selectCellTyp:Line_Type];
             multiSelectTableView.tag = i;
             multiSelectTableView.multiSelectDelegate = self;
             [self.tableViewArray addObject:multiSelectTableView];
             [self addSubview:multiSelectTableView];
         }
-
     }
 }
 
@@ -135,6 +140,12 @@
         }
         [self.tempSelectedRowArray insertObject:indexPath atIndex:i];
         [self.multiSelectDelegate multiSelectView:self tableViewIndex:i indexPath:indexPath treeModel:treeModel];
+    }
+}
+
+-(void)pickupView{
+    if (self.multiSelectDelegate &&[self.multiSelectDelegate respondsToSelector:@selector(tapBackView)]) {
+        [self.multiSelectDelegate tapBackView];
     }
 }
 

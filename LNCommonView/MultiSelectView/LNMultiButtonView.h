@@ -13,9 +13,10 @@
 -(void)tapbackGround;
 @end
 @interface LNMultiButtonView : UIView
--(instancetype)initWithFrame:(CGRect)frame buttonHeight:(int)buttonHeight buttonTitle:(NSString *)titles,...NS_REQUIRES_NIL_TERMINATION;
+-(instancetype)initWithFrame:(CGRect)frame buttonTitle:(NSString *)titles,...NS_REQUIRES_NIL_TERMINATION;
 @property(nonatomic,weak) id<LNMultiButtonViewDelegate> multiButtonViewDelegate;
 @property(nonatomic,strong)NSMutableArray *dataArray;
 -(void)pickUpButton:(int)btnTag;
 -(void)buttonTitle:(NSString *)title btnTag:(int)btnTag;
+-(void)pickupView;
 @end

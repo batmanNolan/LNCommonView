@@ -30,7 +30,7 @@
 
 
 - (void)initView{
-    self.selectBtn = [[LNMultiButtonView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) buttonHeight:40 buttonTitle:@"测试1",@"测试2", nil];
+    self.selectBtn = [[LNMultiButtonView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40) buttonTitle:@"测试1",@"测试2", nil];
     self.selectView0 = [[LNMultiSelectView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT*1/2) buttonCount:3];
     self.selectView1 =  [[LNMultiSelectView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT*1/2) buttonCount:3];
     [self.selectView0 hideAndSaveSelectView:NO animated:NO];
@@ -144,9 +144,10 @@
     }
 }
 
--(void)tapbackGround{
-    [self.selectView0 hideAndSaveSelectView:NO animated:YES];
-    [self.selectView1 hideAndSaveSelectView:NO animated:YES];
+-(void)tapBackView{
+    [self.selectView0 hideAndSaveSelectView:NO animated:NO];
+    [self.selectView1 hideAndSaveSelectView:NO animated:NO];
+    [self.selectBtn pickupView];
 }
 
 - (void)didReceiveMemoryWarning {
