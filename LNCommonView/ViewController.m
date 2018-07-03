@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"全民付移动支付演示Demo";
+    self.title = @"LN页面组件Demo";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     btnNameArray = @[@"首字母检索TableView", @"多选Tableview"];
