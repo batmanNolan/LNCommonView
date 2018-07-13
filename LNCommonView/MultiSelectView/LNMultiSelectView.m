@@ -12,6 +12,9 @@
 #define buttonTag       10
 #define tableviewTag    100
 @interface LNMultiSelectView()<LNMultiSelectTBDelegate>
+{
+    BOOL _vcBeenLayout;
+}
 @property(nonatomic,strong)NSMutableArray       *tableViewArray;
 @property(nonatomic,assign)int                  buttonCount;
 @property(nonatomic,strong)NSMutableDictionary  *dataDic;
@@ -36,11 +39,15 @@
         self.tempSelectedRowArray = [[NSMutableArray alloc]init];
         self.selectedRowArray = [[NSMutableArray alloc]init];
         self.haveBeenSelect = NO;
+        _vcBeenLayout = NO;
     }
     return self;
 }
 -(void)layoutSubviews{
-    [self initView];
+    if (_vcBeenLayout == NO) {
+        _vcBeenLayout = YES;
+        [self initView];
+    }
 }
 -(void)initView{
     
@@ -65,6 +72,7 @@
             [self addSubview:multiSelectTableView];
         }
     }
+    NSLog(@"数目:%d",[self.tableViewArray count]);
 }
 
 - (void)reloadMultiTableView:(NSMutableArray *)dataArray tableIndex:(int)index{
